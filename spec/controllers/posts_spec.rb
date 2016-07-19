@@ -67,7 +67,7 @@ RSpec.describe PostsController, type: :controller do
     end
 
     it "render :edit on fail" do
-        allow_any_instance_of(Post).to receive(:update).and_return(false)
+        allow_any_instance_of(Post).to receive(:update).and_return(false)  #stub
         post :update, post: @post_params, id: @post_2[:id]
         expect(response).not_to have_http_status(302)
         expect(response).to render_template(:edit)
